@@ -1,0 +1,18 @@
+package Servicio;
+
+import modelo.Servicio;
+
+public class ServicioFixture1 {
+	
+	Servicio myServicio;
+	
+	public ServicioFixture1(){}
+	
+	
+	public void setUp()
+	{
+		myServicio = new Servicio("Probando", "por hora", 22);
+	}	
+	
+	public void tearDown() {}
+}
