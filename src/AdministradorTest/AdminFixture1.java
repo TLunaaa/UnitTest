@@ -25,7 +25,7 @@ public class AdminFixture1 {
 		HashMap<Colaborador,ArrayList<Tarea>> mapa = new HashMap<Colaborador,ArrayList<Tarea>>();
 		ArrayList<Tarea> lista = new ArrayList<Tarea>();
 		lista.add(tarea); mapa.put(colab, lista);
-		admin.setBaseTareas();
+		admin.setBaseTareas(mapa);
 	}
 	
 	public void tearDown() {
