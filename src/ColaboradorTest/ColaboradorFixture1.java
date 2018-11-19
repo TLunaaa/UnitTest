@@ -23,7 +23,7 @@ public class ColaboradorFixture1 {
 		client = new Cliente("pepito", "pepito@gmail.com", "123", "444", "", "");
 		serv = new Servicio("comer", null, 0);
 		tarea = new Tarea(colab1,client,serv);
-		
+		colab1.getTareas().add(tarea);
 	}
 	
 	public void tearDown() {
