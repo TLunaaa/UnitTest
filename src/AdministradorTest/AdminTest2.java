@@ -13,7 +13,7 @@ import java.util.GregorianCalendar;
 
 public class AdminTest2 {
 	
-	AdminrFixture2 fixture2 = new AdminrFixture2();
+	AdminFixture2 fixture2 = new AdminFixture2();
 	
 	public AdminTest2() {
 		
@@ -30,8 +30,13 @@ public class AdminTest2 {
 	
 	
 	@Test
-	public void testInformeTareasDeColaborador1() {
-		String informe = fixture2.colab1.informeTareasDeColaborador(new GregorianCalendar(2010,10,10), new GregorianCalendar(2010,10,12));
-		assertEquals("Devolucion Incorrecta",informe,"El colaborador no posee tareas. \nTOTAL HORAS: 0");
+	public void testInformeEstadoTareas() {
+		try {
+			String informe = fixture2.admin.InformeEstadoTareas();
+			assertEquals("Resultado Nulo",informe,null);
+		}
+		catch(NullPointerException e) {
+			fail("Error, no valida null");
+		}
 	}
 }

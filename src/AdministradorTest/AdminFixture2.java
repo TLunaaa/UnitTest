@@ -5,15 +5,15 @@ import java.util.HashMap;
 
 import modelo.*;
 
-public class AdminFixture1 {
+public class AdminFixture2 {
 	Administrador admin;
 	Colaborador colab1;
 	Colaborador colab2;
-	Cliente client;
-	Servicio serv;
-	Tarea tarea;
+	private Cliente client;
+	private Servicio serv; 
+	private Tarea tarea; 
 	
-	public AdminFixture1() {
+	public AdminFixture2() {
 	
 	}
 	
@@ -23,16 +23,11 @@ public class AdminFixture1 {
 		colab2 = new Colaborador("Roberto Perez", "robertoP78@hotmail.com","2234345345","robin78", "444");
 		client = new Cliente("Paco Martinez", "paco_negocios@fimdp.com.ar", "2262457896", "23124578", "emprendedor", "emprendedoresmdp");
 		serv = new Servicio("Servicio1","fijo",300);
-		tarea = new Tarea(colab1,client,serv);
 		HashMap<Colaborador,ArrayList<Tarea>> mapa = new HashMap<Colaborador,ArrayList<Tarea>>();
-		ArrayList<Tarea> lista = new ArrayList<Tarea>();
-		lista.add(tarea); mapa.put(colab1, lista);
 		admin.setBaseTareas(mapa);
 	}
 	
 	public void tearDown() {
 		
 	}
-	
-	
 }
