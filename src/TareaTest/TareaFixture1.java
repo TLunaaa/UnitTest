@@ -20,8 +20,10 @@ public class TareaFixture1 {
 		Cliente client = new Cliente("Paco Martinez", "paco_negocios@fimdp.com.ar", "2262457896", "23124578", "emprendedor", "emprendedoresmdp");
 		Servicio serv = new Servicio("Servicio1","fijo",300);
 		tarea = new Tarea(colab,client,serv);
+
 	}
 	
 	public void tearDown() {
+		
 	}
 }
