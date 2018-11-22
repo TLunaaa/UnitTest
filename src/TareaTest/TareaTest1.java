@@ -57,47 +57,7 @@ public class TareaTest1 {
 		}
 	}
 	
-	/*
-	 * Cambia el estado de la Tarea de "abierta" a null.
-	 */
-	@Test
-	public void testActualizoTarea3(){
-		try {
-			fixture.tarea.actualizoTarea(null);
-			fail("Esta prueba de actualizoTarea debe disparar una excepcion");
-		}catch(NullPointerException e) {
-			fail("Esta prueba de actualizoTarea debe disparar una excepcion de estado invalido");
-		}catch(Exception e) {
-			
-		}
-	}
 	
-	
-	/*
-	 * Cambia el estado de "abierto" a " ".
-	 */
-	@Test
-	public void testActualizoTarea5(){
-		try {
-			fixture.tarea.actualizoTarea(" ");
-			fail("Esta prueba de actualizoTarea debe disparar una excepcion");
-		}catch(Exception e) {
-			
-		}
-	}
-	
-	/*
-	 * Cambia el estado de "abierto" a "terminada".
-	 */
-	@Test
-	public void testActualizoTarea4(){
-		try {
-			fixture.tarea.actualizoTarea("terminada");
-			fail("Esta prueba de actualizoTarea debe disparar una excepcion");
-		}catch(Exception e) {
-			
-		}
-	}
 	
 	@Test
 	public void testCostoTotal() {

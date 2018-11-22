@@ -58,50 +58,11 @@ public class TareaTest2 {
 		}catch(Exception e) {
 			assertEquals("No genera la excepcion de estado invalido",e.getMessage(),"Cambio de estado invalido: de cerrado a cerrado.");
 		}
-	}
+	}	
 	
 	/*
-	 * Cambia el estado de la Tarea de "cerrado" a null.
+	 * Se comprueba el valor devuelto por el metodo.
 	 */
-	@Test
-	public void testActualizoTarea3(){
-		try {
-			fixture.tarea.actualizoTarea(null);
-			fail("Esta prueba de actualizoTarea debe disparar una excepcion");
-		}catch(NullPointerException e) {
-			fail("Esta prueba de actualizoTarea debe disparar una excepcion de estado invalido");
-		}catch(Exception e) {
-			
-		}
-	}
-	
-	
-	/*
-	 * Cambia el estado de "cerrado" a " ".
-	 */
-	@Test
-	public void testActualizoTarea5(){
-		try {
-			fixture.tarea.actualizoTarea(" ");
-			fail("Esta prueba de actualizoTarea debe disparar una excepcion");
-		}catch(Exception e) {
-			assertFalse("Se lanzo una excepcion incorrecta",e.getMessage().equalsIgnoreCase("Cambio de estado invalido: de cerrado a pausa."));
-		}
-	}
-	
-	/*
-	 * Cambia el estado de "cerrado" a "terminada".
-	 */
-	@Test
-	public void testActualizoTarea4(){
-		try {
-			fixture.tarea.actualizoTarea("terminada");
-			fail("Esta prueba de actualizoTarea debe disparar una excepcion");
-		}catch(Exception e) {
-			assertFalse("Se lanzo una excepcion incorrecta",e.getMessage().equalsIgnoreCase("Cambio de estado invalido: de cerrado a pausa."));
-		}
-	}
-	
 	@Test
 	public void testCostoTotal() {
 		final double cost;
