@@ -30,6 +30,8 @@ public class ModeloFixture2 {
 		client2 = new Cliente("Jhon Ford", "jhon_contact@gmail.com","22624579","2168491","emprendedor","emprendedoresmdp");
 		serv = new Servicio("Servicio1","fijo",300);
 		tarea = new Tarea(colab1,client1,serv);
+		modelo.addUsuario(colab1);
+		modelo.addUsuario(colab2);
 		modelo.addTarea(colab1,tarea);
 		modelo.setUsserActual(colab1);
 		modelo.addCliente(client1);

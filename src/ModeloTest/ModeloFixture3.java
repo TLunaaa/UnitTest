@@ -35,6 +35,8 @@ public class ModeloFixture3 {
 		serv1 = new Servicio("Serivico2","fijo",500);
 		tarea1 = new Tarea(colab1,client1,serv1);
 		tarea2 = new Tarea(colab2,client2,serv2);
+		modelo.addUsuario(colab1);
+		modelo.addUsuario(colab2);
 		modelo.addTarea(colab1,tarea1);
 		modelo.setUsserActual(admin);
 		modelo.addCliente(client1);
