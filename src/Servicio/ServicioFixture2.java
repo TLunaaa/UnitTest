@@ -2,6 +2,10 @@ package Servicio;
 
 import modelo.Servicio;
 
+/*
+ * Escenario donde se tiene un servicio fijo.
+ */
+
 public class ServicioFixture2 {
 	
 	Servicio myServicio;

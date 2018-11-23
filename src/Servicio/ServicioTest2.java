@@ -1,5 +1,6 @@
 package Servicio;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -39,12 +40,16 @@ public class ServicioTest2 {
 		}
 	}
 	
+	/*
+	 * Se prueban horas negativas
+	 */
 	@Test
 	public void testCalculoCosto2() {
 		try {
-			assertTrue("El valor calculado no es el esperado.",  escenario.myServicio.calcularCostoFinal(-5) == 650);
+			double costo = escenario.myServicio.calcularCostoFinal(-5);
+			fail("Deberia haber lanzado alguna excepcion.");
 		} catch(Exception e) {
-			fail("No deberia haber lanzado ninguna excepcion.");
+			assertFalse("No se arroja la excepcion correspondiente",e.getMessage().equalsIgnoreCase("No existe un servicio con ese tipo de costo"));
 		}
 	}
 }

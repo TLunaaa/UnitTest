@@ -2,6 +2,10 @@ package Servicio;
 
 import modelo.Servicio;
 
+/*
+ * Escenario con un servicio sin descripcion y datos erronos.
+ */
+
 public class ServicioFixture3 {
 	
 	Servicio myServicio;
