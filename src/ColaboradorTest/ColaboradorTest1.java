@@ -6,7 +6,6 @@ import modelo.EstructuraAuxiliar;
 import modelo.GTSPException;
 
 import org.junit.Before;
-import org.junit.After;
 import static org.junit.Assert.*;
 
 import java.util.GregorianCalendar;

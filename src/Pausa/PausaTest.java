@@ -1,6 +1,6 @@
 package Pausa;
 
-import junit.framework.JUnit4TestAdapter;
+
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;

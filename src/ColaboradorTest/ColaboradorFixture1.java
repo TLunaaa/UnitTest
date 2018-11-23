@@ -1,7 +1,5 @@
 package ColaboradorTest;
 
-import java.util.ArrayList;
-
 import modelo.*;
 
 public class ColaboradorFixture1 {
