@@ -23,12 +23,13 @@ public class AdminTest2 {
 		fixture2.setUp();
 	}
 	
-	
+	//Se prueba el informe sin tareas registradas
 	@Test
 	public void testInformeEstadoTareas() {
 		try {
 			String informe = fixture2.admin.InformeEstadoTareas();
-			assertEquals("Resultado Nulo",informe,null);
+			assertNotEquals("Resultado Nulo",informe,null);
+			//Posible falta de aviso de tareas no registradas?
 		}
 		catch(NullPointerException e) {
 			fail("Error, no valida null");

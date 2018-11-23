@@ -14,7 +14,7 @@ public class ColaboradorFixture2 {
 	}
 	
 	public void setUp() {
-		colab1 = new Colaborador("Pedrito Perez","pedrito@gmail.com","123","pedrito","123");
+		colab1 = new Colaborador("Pedrito Perez","pedrito@gmail.com","12345678","pedrito","123");
 	}
 	
 	public void tearDown() {
