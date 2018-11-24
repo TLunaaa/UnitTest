@@ -63,7 +63,6 @@ public class ColaboradorTest1 {
 	public void testInformeTareasDeColaborador1() {
 		
 		String informe = fixture1.colab1.informeTareasDeColaborador(new GregorianCalendar(2010,10,10), new GregorianCalendar(2020,10,10));
-		System.out.println(informe);
 		assertNotEquals("Devolucion Incorrecta",informe,null);
 		assertNotEquals("Devolucion Incorrecta",informe,"El colaborador no posee tareas. \nTOTAL HORAS: 0");
 		assertNotEquals("Devolucion Incorrecta",informe,"");
