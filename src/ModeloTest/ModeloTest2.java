@@ -26,18 +26,18 @@ public class ModeloTest2 {
 	@Test
 	public void testActualizaEstado() {
 		try {
-			fixture.modelo.actualizoEstado(Integer.toString(fixture.tarea.getID()), "cerrado");
-			fail("Deberia habel lanzado una excepcion.");
+			fixture.modelo.actualizoEstado(Integer.toString(fixture.tarea2.getID()), "cerrado");
+			fail("Deberia haber lanzado una excepcion.");
 		} catch (GTSPException e) {
-			assertTrue("La excepcion no es la esperada.", e.getMessage().equalsIgnoreCase("El usuario no puede acceder a esa funciï¿½n."));
+			assertTrue("La excepcion no es la esperada.", e.getMessage().equalsIgnoreCase("El usuario no puede acceder a esa función."));
 		}
 	}
 	
 	@Test
 	public void testCrearTarea() {
 		try {
-			fixture.modelo.crearTarea(fixture.colab1.getNombreApellido(), fixture.client1.getCuit(), fixture.serv.getDescripcion());
-			fail("Deberia habel lanzado una excepsion.");
+			fixture.modelo.crearTarea(fixture.colab2.getNombreUsuario(), fixture.client1.getCuit(), fixture.serv.getDescripcion());
+			fail("Deberia haber lanzado una excepcion.");
 		} catch (GTSPException e) {
 			assertTrue("La excepcion no es la esperada.", e.getMessage().equalsIgnoreCase("El usuario no puede acceder a esa funcion."));
 		}

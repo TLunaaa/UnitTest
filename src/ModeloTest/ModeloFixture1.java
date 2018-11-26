@@ -31,11 +31,12 @@ public class ModeloFixture1 {
 		serv = new Servicio("Servicio1","fijo",300);
 		tarea = new Tarea(colab1,client1,serv);
 		modelo.addUsuario(colab1);
-		modelo.addUsuario(colab2);
+		//modelo.addUsuario(colab2);
 		modelo.addTarea(colab1,tarea);
 		modelo.setUsserActual(admin);
 		modelo.addCliente(client1);
 		modelo.addUsuario(colab1);
+		modelo.addServicio(serv);
 		tareas.add(tarea);
 		basetareas.put(colab1,tareas);
 		admin.setBaseTareas(basetareas);

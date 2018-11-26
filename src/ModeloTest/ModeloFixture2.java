@@ -17,6 +17,7 @@ public class ModeloFixture2 {
 	public Cliente client2;
 	public Servicio serv;
 	public Tarea tarea;
+	public Tarea tarea2;
 	
 	public ModeloFixture2() {
 		
@@ -30,12 +31,13 @@ public class ModeloFixture2 {
 		client2 = new Cliente("Jhon Ford", "jhon_contact@gmail.com","22624579","2168491","emprendedor","emprendedoresmdp");
 		serv = new Servicio("Servicio1","fijo",300);
 		tarea = new Tarea(colab1,client1,serv);
+		tarea2 = new Tarea(colab2,client2,serv);
 		modelo.addUsuario(colab1);
 		modelo.addUsuario(colab2);
 		modelo.addTarea(colab1,tarea);
+		modelo.addTarea(colab2,tarea2);
 		modelo.setUsserActual(colab1);
 		modelo.addCliente(client1);
-		modelo.addUsuario(colab1);
 	}
 	
 	public void tearDown() {

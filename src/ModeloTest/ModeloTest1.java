@@ -38,7 +38,7 @@ public class ModeloTest1 {
 			fixture.modelo.actualizoEstado(Integer.toString(fixture.tarea.getID()),"cerrado"); //Tuve que Harcodear el ID para que funcione (devuelve un entero y pide un String)
 			assertTrue("Error al actualizar el estado de la tarea",fixture.tarea.getEstado().getTipoEstado().equalsIgnoreCase("cerrado"));
 		}catch(GTSPException e) {
-			fail("no deberia tirar ninguna excepcion");
+			fail("No deberia lanzar ninguna excepcion.");
 		}
 	}
 	
@@ -50,9 +50,9 @@ public class ModeloTest1 {
 	public void testActualizoEstado2() {
 		try {
 			fixture.modelo.actualizoEstado("111", "cerrada");
-			fail("Este metodo deberia lanzar una excepcion");
+			fail("Este metodo deberia lanzar una excepcion.");
 		} catch (GTSPException e) {
-			assertEquals("No es el error que deberia lanzar",e.getMessage(),"No existe tarea.");
+			assertEquals("No es el error que deberia lanzar.",e.getMessage(),"No existe tarea.");
 		}
 	}
 	
@@ -63,19 +63,19 @@ public class ModeloTest1 {
 			fixture.modelo.actualizoEstado(Integer.toString(fixture.tarea.getID()), "abierto");
 			fail("Este metodo deberia lanzar una excepcion");
 		} catch (GTSPException e) {
-			assertEquals("No es el error que deberia lanzar",e.getMessage(),"Cambio de estado invalido: de abierto a abierto.");
+			assertEquals("No es el error que deberia lanzar.",e.getMessage(),"Cambio de estado invalido: de abierto a abierto.");
 		}
 	}
 	
 	@Test 
 	public void testAddCliente1() {
 		fixture.modelo.addCliente(fixture.client2);
-		//assertTrue("no se agrego el cliente correspondiente.");
-		//No hay manera de veirificar que se haya agregado correctamente el cliente.
+		//assertTrue("No se agrego el cliente correspondiente.");
+		//No hay manera de verificar que se haya agregado correctamente el cliente.
 	}
-	
+	//Se intenta agregar un cliente ya agregado.
 	@Test 
-	public void testAddClietne2() {
+	public void testAddCliente2() {
 		fixture.modelo.addCliente(fixture.client1);
 		fail("Deberia haber lanzado un error, el cliente agregado ya existe.");
 	}
@@ -86,10 +86,10 @@ public class ModeloTest1 {
 			fixture.modelo.cambioContrasenia(fixture.colab1, fixture.colab1.getContrasenia(), "123", "123");
 			assertEquals("No se cambio la contrasenia",fixture.colab1.getContrasenia(),"123");
 		} catch (GTSPException e) {
-			fail("No deberia tirar excepcion");
+			fail("No deberia lanzar excepcion");
 		}
 	}
-	
+	//Se prueba cambiar la pass de un usuario no ingresado.
 	@Test
 	public void testCambioContrasenia2() {
 		try {
@@ -121,11 +121,11 @@ public class ModeloTest1 {
 			assertEquals("No es el error que deberia lanzar",e.getMessage(),"Contraseña actual no incorrecta.");//??????????
 		}
 	}
-	
+	//Se intenta crear una tarea pero el Colaborador ya tiene una tarea Abierta
 	@Test 
 	public void testCrearTarea() {
 		try {
-			fixture.modelo.crearTarea(fixture.colab1.getNombreApellido(), fixture.client1.getCuit(), fixture.serv.getDescripcion());
+			fixture.modelo.crearTarea(fixture.colab1.getNombreUsuario(), fixture.client1.getCuit(), fixture.serv.getDescripcion());
 			fail("El metodo deberia haber lanzado alguna excepcion.");
 		} catch (GTSPException e) {
 			assertTrue("La excepcion lanzada no es la correcta.", e.getMessage().equalsIgnoreCase("El colaborador solicitado tiene una tarea abierta."));
@@ -161,26 +161,28 @@ public class ModeloTest1 {
 			assertTrue("La excepcion lanzado no es la correcta.", e.getMessage().equalsIgnoreCase("Perfil inexistente."));
 		}
 	}	
-	
+	//Se prueba el metodo con datos correctos.
 	@Test
 	public void testDatosIngresadosCorrectos1() {
 		try {
-			assertTrue("El usuario devuelto no el esperado.", fixture.admin.equals(fixture.modelo.datosIngresadosCorrecto(fixture.admin.getNombreUsuario(), fixture.admin.getContrasenia())));
+			assertTrue("El usuario devuelto no el esperado.", fixture.colab1.equals(fixture.modelo.datosIngresadosCorrecto(fixture.colab1.getNombreUsuario(), fixture.colab1.getContrasenia())));
 		} catch (GTSPException e) {
 			fail("No deberia haber lanzado ninguna excepcion.");
 		}
 	}
 	
+	//Se prueba el metodo con la pass incorrecta.
 	@Test
 	public void testDatosIngresadosCorrectos2() {
 		try {
-			Usuario otro = fixture.modelo.datosIngresadosCorrecto(fixture.admin.getNombreUsuario(), "Hola");
+			Usuario otro = fixture.modelo.datosIngresadosCorrecto(fixture.colab1.getNombreUsuario(), "Hola");
 			fail("Deberia haber lanzado una excepcion");
 		} catch (GTSPException e) {
 			assertTrue("La excepcion lanzada no es la correcta.", e.getMessage().equalsIgnoreCase("Contrasenia incorrecta."));
 		}
 	}
 	
+	//Se prueba el metodo con el nombre de usuario incorrecto.
 	@Test
 	public void testDatosIngresadosCorrectos3() {
 		try {
@@ -224,7 +226,7 @@ public class ModeloTest1 {
 	public void testEncuentraTarea2() {
 		Tarea t = fixture.modelo.encuentraTarea("11111");
 		assertTrue("No encontro la tarea",t==null);
-		fail("Deberia lanzar excpcion");
+		fail("Deberia lanzar excepcion");
 	}
 	//Se pide informe siendo Admin
 	@Test
@@ -271,7 +273,7 @@ public class ModeloTest1 {
 			fixture.modelo.informeTareasPorCliente("11111", new GregorianCalendar(2010,10,10), new GregorianCalendar(2010,10,12));
 			fail("Deberia haber lanzado excepcion");
 		} catch (GTSPException e) {
-			assertEquals("No es el error que deberia lanzar",e.getMessage(),"El usuario actual no es un administrador.");
+			assertEquals("No es el error que deberia lanzar",e.getMessage(),"El cliente no es uno valido");
 		}
 	}
 	
@@ -286,7 +288,7 @@ public class ModeloTest1 {
 	@Test
 	public void testUsuarioValidoParaRegistrar2() {
 		Colaborador cAux = new Colaborador ("nada","nada@gmail.com","1123",fixture.colab1.getNombreUsuario(),"123");
-		boolean resultado = fixture.modelo.usuarioValidoParaRegistrar(fixture.colab2);
+		boolean resultado = fixture.modelo.usuarioValidoParaRegistrar(cAux);
 		assertTrue("Salida erronea deberia ser invalido para registrar",!resultado);
 	}
 	
@@ -294,7 +296,7 @@ public class ModeloTest1 {
 	@Test
 	public void testUsuarioValidoParaRegistrar3() {
 		Colaborador cAux = new Colaborador ("nada",fixture.colab1.getEMail(),"1123","pepito","123");
-		boolean resultado = fixture.modelo.usuarioValidoParaRegistrar(fixture.colab2);
+		boolean resultado = fixture.modelo.usuarioValidoParaRegistrar(cAux);
 		assertTrue("Salida erronea deberia ser invalido para registrar",!resultado);
 	}
 }
